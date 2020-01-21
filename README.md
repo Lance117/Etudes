@@ -1,7 +1,4 @@
-## Description
-- [bash_prank.sh](https://github.com/LanceSanity/awesome_bash/blob/master/bash_prank.sh) is a script that appends aliases to
-your bashrc. This is a prank that aliases common commands to rick roll in your terminal. Source for rick roll in terminal: [rickrollrc](https://github.com/keroserene/rickrollrc) by [keroserene](https://github.com/keroserene)
-- [setup.sh](https://github.com/LanceSanity/awesome_bash/blob/master/setup.sh) is something I used to install packages I may need for a fullstack app and create initial files.
+## Etude
+*é·tude*: a short musical composition, typically for one instrument, designed as an exercise to improve the technique or demonstrate the skill of the player.
 
-## How to Use
-`./<script name>`
+This project contains small programs and exercises I'm working on to improve programming skills.
