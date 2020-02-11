@@ -4,7 +4,7 @@ Write a Poker Program
 poker(hands: List[hand]) -> hand
 hand_rank(hand: Hand) -> rank
 
-hand rank concepts: n-kind, straight, flush
+hand rank concepts: n-kind, straight, flush, two-pair
 """
 
 def poker(hands):
@@ -16,7 +16,7 @@ def poker(hands):
 
 def hand_rank(hand):
     """
-    Returns rank for a hand
+    Returns rank for a hand. Idea is to use tuple comparison to evaluate hand rank.
     TODO: functions to determine hand type
 
     straight(ranks): True if hand is straight
@@ -44,6 +44,12 @@ def hand_rank(hand):
         return (1, kind(2, ranks), ranks)
     else:
         return (0, ranks)
+
+def card_ranks(cards):
+    """Return a list of ranks, sorted with higher first"""
+    ranks = ['__23456789TJQKA'.index(r) for r,s in cards]
+    ranks.sort(reverse=True)
+    return ranks
 
 def test():
     """Test cases for the functions in a poker program"""
