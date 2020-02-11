@@ -49,7 +49,7 @@ def card_ranks(cards):
     """Return a list of ranks, sorted with higher first"""
     ranks = ['__23456789TJQKA'.index(r) for r,s in cards]
     ranks.sort(reverse=True)
-    return ranks
+    return [5,4,3,2,1] if ranks == [14,5,4,3,2] else ranks
 
 def straight(ranks):
     """Return True if the ordered ranks form a 5-card straight."""
@@ -83,6 +83,10 @@ def test():
     fk = '9D 9C 9H 9S 7D'.split()
     fh = 'TD TC TH 7H 7D'.split()
     tp = '5S 5D 9H 9C 6S'.split()
+    s1 = 'AS 2S 3S 4S 5C'.split() # A-5 straight
+    s2 = '2C 3C 4C 5S 6S'.split()
+    ah = 'AS 2S 3S 4S 6C'.split() # ace high
+    sh = '2S 3S 4S 6C 7D'.split()
     fkranks = card_ranks(fk)
     tpranks = card_ranks(tp)
     assert(card_ranks(sf)) == [10, 9, 8, 7, 6]
@@ -94,6 +98,7 @@ def test():
     assert(kind(1, fkranks)) == 7
     assert(straight([9, 8, 7, 6, 5])) == True
     assert(straight([9, 8, 7, 6, 4])) == False
+    assert(straight(card_ranks(s1))) == True
     assert(flush(sf)) == True
     assert(flush(fk)) == False
     assert(two_pair(fkranks)) == None
