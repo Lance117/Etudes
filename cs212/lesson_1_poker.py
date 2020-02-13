@@ -1,3 +1,5 @@
+import random
+
 """
 Write a Poker Program
 
@@ -6,6 +8,13 @@ hand_rank(hand: Hand) -> rank
 
 hand rank concepts: n-kind, straight, flush, two-pair
 """
+
+mydeck = [r+s for r in '23456789TJQKA' for s in 'HSCD']
+
+def deal(numhands, n=5, deck=mydeck):
+    """Builds a deck of 52 cards"""
+    random.shuffle(deck)
+    return [deck[n*i:n*(i+1)] for i in range(numhands)]
 
 def poker(hands):
     """
