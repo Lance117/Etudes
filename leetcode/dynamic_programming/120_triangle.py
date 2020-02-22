@@ -32,3 +32,17 @@ def minimumTotal1(triangle):
             else:
                 t[row][col] = min(triangle[row - 1][col - 1], triangle[row - 1][col])
     return min(t[-1])
+
+def minimumTotal2(triangle):
+    """
+    Space complexity upgrade: O(n)
+
+    Start with a table of values from bottom, and update as you move up to the row
+    above. The table is updated with the value on the current col and row, and
+    the min adjacent value from the row below.
+    """
+    t = triangle[-1]
+    for row in reversed(range(len(triangle) - 1)):
+        for col in range(len(triangle[row])):
+            t[col] = min(t[col], t[col + 1]) + triangle[row][col]
+    return t[0]
