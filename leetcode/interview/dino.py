@@ -6,13 +6,12 @@ def dino_speed(stride_length, leg_length, g):
 
 def dino(d1, d2):
     x, pq = {}, []
-    with open(d1) as f:
-        f_reader = csv.reader(f)
+    with open(d1) as f1, open(d2) as f2:
+        f_reader = csv.reader(f1)
         for e in f_reader:
             x[e[0]] = [float(e[1]), e[2]]
-    with open(d2) as f:
-        f_reader = csv.reader(f)
-        for e in f_reader:
+        f2_reader = csv.reader(f2)
+        for e in f2_reader:
             if e[0] in x:
                 e_stats = x[e[0]]
                 e_stats.append(e[-1])
