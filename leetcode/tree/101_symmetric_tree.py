@@ -19,3 +19,20 @@ class Solution:
             return out_branch and in_branch
         
         return symHelper(root.left, root.right)
+
+        def isSymmetricIter(self, root: TreeNode) -> bool:
+            if not root:
+                return True
+            s = [root.left, root.right]
+            while s:
+                r = s.pop()
+                l = s.pop()
+                if not (l or r):
+                    continue
+                if not (l and r) or l.val != r.val:
+                    return False
+                s.append(l.left)
+                s.append(r.right)
+                s.append(l.right)
+                s.append(r.left)
+            return True
